@@ -6,6 +6,8 @@ const morgan = require('morgan');
 
 //importar rutas
 const userRoutes = require('../routes/user.routes');
+const categoryRoutes = require('../routes/category.routes');
+const gameRoutes = require('../routes/game.routes');
 
 // leer cosas de .env
 dotenv.config();
@@ -20,6 +22,8 @@ app.use(morgan('dev'));
 
 //instanciar rutas
 app.use('/users', userRoutes);
+app.use('/category', categoryRoutes);
+app.use('/game', gameRoutes);
 
 app.listen(port, () => {
   console.log(`Estamos escuchando el puerto ${port}`);

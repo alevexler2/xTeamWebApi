@@ -38,9 +38,7 @@ const loginUser = async (email, password) => {
   const match = bcrypt.compareSync(password, userFounded.password);
     if (match) {
       const payload = {
-        id: userFounded._id,
-        email: userFounded.email,
-        admin: userFounded.admin
+        ...userFounded
       };
       const token = jwt.sign(payload, SECRET_KEY, {
         expiresIn: "10h",

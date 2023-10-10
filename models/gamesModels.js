@@ -19,13 +19,14 @@ const gameSchema = new Schema({
   },
   fav: {
     type: Boolean,
+    default: false,
     required: false,
   },
-  // category: {
-  //   type:Schema.ObjectId,
-  //   ref:'Category',
-  //   required : true
-  // }
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  }
 });
 
 module.exports = model('games', gameSchema);
